@@ -6,6 +6,7 @@ pub mod function_graph;
 pub mod fuzzer;
 pub mod icicle;
 pub mod segmentlist;
+pub mod winemu;
 
 use pyo3::prelude::*;
 
@@ -31,6 +32,7 @@ fn import_submodule<'py>(
 fn rustylib(m: &Bound<'_, PyModule>) -> PyResult<()> {
     import_submodule(m.py(), m, "angr.rustylib", "fuzzer", fuzzer::fuzzer)?;
     import_submodule(m.py(), m, "angr.rustylib", "icicle", icicle::icicle)?;
+    import_submodule(m.py(), m, "angr.rustylib", "winemu", winemu::winemu)?;
     import_submodule(
         m.py(),
         m,
